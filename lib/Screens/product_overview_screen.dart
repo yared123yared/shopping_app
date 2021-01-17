@@ -52,7 +52,7 @@ class ProductOverviewScreen extends StatelessWidget {
           crossAxisCount: 2,
           crossAxisSpacing: 10,
 
-          childAspectRatio: 10,
+          childAspectRatio: 3/2,
           mainAxisSpacing: 10,
         ),
 
