@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:new_shopping_app/Providers/products.dart';
-import '../Providers/product.dart';
-import 'package:provider/provider.dart';
 
+import '../Providers/products.dart';
+import 'package:provider/provider.dart';
+//
 class ProductDetailScreen extends StatelessWidget {
    static const routeName='product_detail';
 //  final String title;
