@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../Widgets/product_grid.dart';
 import '../Providers/product.dart';
 import '../Widgets/product_item.dart';
+import 'cart_screen.dart';
 enum FiltrOptions{
   Favorites,
   All
@@ -55,7 +56,9 @@ class ProductOverviewScreen extends StatelessWidget {
 
               child: IconButton(
                 icon: Icon(Icons.shopping_cart),
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.of(context).pushNamed(CartScreen.routeName);
+                },
 
               )
           ),
