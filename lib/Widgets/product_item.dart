@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_shopping_app/Providers/cart.dart';
 import '../Providers/product.dart';
 import 'package:new_shopping_app/Screens/product_detail_screen.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +10,7 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final product=Provider.of<Product>(context);
+    final cart=Provider.of<Cart>(context);
     return GestureDetector(
       onTap: (){
         Navigator.of(context).pushNamed(ProductDetailScreen.routeName,arguments: product.id);
@@ -31,7 +33,13 @@ class ProductItem extends StatelessWidget {
             trailing: IconButton(
               color: Theme.of(context).accentColor,
               icon: Icon(Icons.shopping_cart),
-              onPressed:(){}
+              onPressed:(){
+                cart.addItem(
+                  product.id,
+                  product.price,
+                  product.title
+                );
+              }
             ),
           ),
         ),

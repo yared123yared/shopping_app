@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:new_shopping_app/Providers/cart.dart';
+import '../Widgets/badge.dart';
 import '../Providers/products.dart';
 import 'package:provider/provider.dart';
-import '../Screens/product_grid.dart';
+import '../Widgets/product_grid.dart';
 import '../Providers/product.dart';
 import '../Widgets/product_item.dart';
 enum FiltrOptions{
@@ -45,7 +47,21 @@ class ProductOverviewScreen extends StatelessWidget {
 
               ),
             ]
-          )
+          ),
+          Consumer<Cart>(
+            builder: (_,cart,ch) => Badge(
+              child: ch,
+                 value: cart.itemCount.toString()),
+
+              child: IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: (){},
+
+              )
+          ),
+
+
+
         ],
       ),
       body: ProductsGrid(),
