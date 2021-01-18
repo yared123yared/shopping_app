@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
+import '../Providers/product.dart';
 import 'package:new_shopping_app/Screens/product_detail_screen.dart';
+import 'package:provider/provider.dart';
 
 class ProductItem extends StatelessWidget {
-  final String id;
-  final String title;
-  final String imageUrl;
-  ProductItem(this.id, this.title, this.imageUrl);
+
+
   @override
   Widget build(BuildContext context) {
+    final product=Provider.of<Product>(context);
     return GestureDetector(
       onTap: (){
-        Navigator.of(context).pushNamed(ProductDetailScreen.routeName,arguments: id);
+        Navigator.of(context).pushNamed(ProductDetailScreen.routeName,arguments: product.id);
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: GridTile(
-            child: Image.network(imageUrl,fit: BoxFit.cover,),
+            child: Image.network(product.imageUrl,fit: BoxFit.cover,),
           footer: GridTileBar(
-            title: Text(title,textAlign: TextAlign.center,),
+            title: Text(product.title,textAlign: TextAlign.center,),
             backgroundColor: Colors.black87,
             leading: IconButton(
               color: Theme.of(context).accentColor,
-              icon: Icon(Icons.favorite_border),
-              onPressed: (){},
+              icon: product.isFavorite ? Icon(Icons.favorite) : Icon(Icons.favorite_border),
+              onPressed: (){
+                      product.toggleFavoriteStatus();
+              },
 
             ),
             trailing: IconButton(
