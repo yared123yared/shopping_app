@@ -32,11 +32,17 @@ class CartScreen extends StatelessWidget {
                  ),),
                  SizedBox(width: 10,),
                  Spacer(),
-                 Chip(
-                   label: Text('\$${cart.totalAmount}' , style: TextStyle(
-                     color: Theme.of(context).primaryTextTheme.headline6.color
-                   ),),
-                   backgroundColor: Theme.of(context).primaryColor,
+                 FittedBox(
+                   child: Container(
+                     width: MediaQuery.of(context).size.width * 0.3,
+                     child: Chip(
+
+                       label: Text('\$${cart.totalAmount}' , style: TextStyle(
+                         color: Theme.of(context).primaryTextTheme.headline6.color
+                       ),),
+                       backgroundColor: Theme.of(context).primaryColor,
+                     ),
+                   ),
                  ),
                  FlatButton(onPressed: (){},
                    child: Text('ORDER NOW'),
@@ -53,6 +59,7 @@ class CartScreen extends StatelessWidget {
              itemBuilder:(ctx,i) =>  CartItem(
                    id: cart.items.values.toList()[i].id,
                    price: cart.items.values.toList()[i].price,
+                  productId: cart.items.keys.toList()[i],
                   title: cart.items.values.toList()[i].title,
                    quantity: cart.items.values.toList()[i].quantity,
          )
