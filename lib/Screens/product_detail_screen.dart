@@ -18,7 +18,7 @@ class ProductDetailScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-
+          
           children: [
             Container(
               height: 300,
@@ -26,7 +26,7 @@ class ProductDetailScreen extends StatelessWidget {
               child: Image.network(loadedProduct.imageUrl,fit: BoxFit.cover,),
             ),
             SizedBox(height: 10,),
-
+            
             Text('\$${loadedProduct.price}',style: TextStyle(
               color: Colors.grey,
               fontSize: 20,
@@ -42,7 +42,7 @@ class ProductDetailScreen extends StatelessWidget {
                 softWrap: true,
               ),
             ),
-
+            
           ],
         ),
       ),

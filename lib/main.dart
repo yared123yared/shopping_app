@@ -3,6 +3,7 @@ import 'package:new_shopping_app/Providers/products.dart';
 import 'package:provider/provider.dart';
 import './Screens/product_overview_screen.dart';
 import 'Providers/cart.dart';
+import 'Providers/orders.dart';
 import 'Screens/cart_screen.dart';
 import 'Screens/product_detail_screen.dart';
 void main() => runApp(MyApp());
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx) => Products(),),
-        ChangeNotifierProvider(create: (ctx) => Cart(),)
+        ChangeNotifierProvider(create: (ctx) => Cart(),),
+        ChangeNotifierProvider(create: (ctx)=> Orders(),)
       ],
       child: ChangeNotifierProvider.value(
 
