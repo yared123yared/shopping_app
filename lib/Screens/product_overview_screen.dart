@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../Widgets/product_grid.dart';
 import '../Providers/product.dart';
 import '../Widgets/product_item.dart';
+import 'app_drawer.dart';
 import 'cart_screen.dart';
 enum FiltrOptions{
   Favorites,
@@ -67,6 +68,7 @@ class ProductOverviewScreen extends StatelessWidget {
 
         ],
       ),
+      drawer: AppDrawer(),
       body: ProductsGrid(),
     );
   }
